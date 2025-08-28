@@ -35,8 +35,8 @@ fun CompilerInterface(
     onClose: () -> Unit
 ) {
     // Determine if compilation was successful
-    val isSuccessful = compileOutput.contains("Kotlin file saved at")
-    val statusMessage = if (isSuccessful) "File saved successfully!" else "File saving unsuccessful"
+    val isSuccessful = !compileOutput.contains("Compilation failed")
+    val statusMessage = if (isSuccessful) "File saved successfully!" else "Compilation Failed"
     val statusColor = if (isSuccessful) Color(0xFF4CAF50) else Color(0xFFF44336)
     val statusIcon = if (isSuccessful) Icons.Default.CheckCircle else Icons.Default.Warning
     
@@ -108,35 +108,37 @@ fun CompilerInterface(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                // Copy button on the left
-                Button(
-                    onClick = {
-                        val pathOnly = compileOutput.substringAfter("Kotlin file saved at ").trim()
-                        if (pathOnly.isNotEmpty()) {
-                            clipboardManager.setText(AnnotatedString(pathOnly))
-                        }
-                    },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF2196F3)
-                    ),
-                    shape = RoundedCornerShape(8.dp),
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text("Copy Path")
+                if (isSuccessful) {
+                    // Copy button on the left (only show for successful compilation)
+                    Button(
+                        onClick = {
+                            val pathOnly = compileOutput.substringAfter("File saved successfully at ").trim()
+                            if (pathOnly.isNotEmpty()) {
+                                clipboardManager.setText(AnnotatedString(pathOnly))
+                            }
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF2196F3)
+                        ),
+                        shape = RoundedCornerShape(8.dp),
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Text("Copy Path")
+                    }
+                    
+                    Spacer(modifier = Modifier.padding(horizontal = 8.dp))
                 }
-                
-                Spacer(modifier = Modifier.padding(horizontal = 8.dp))
                 
                 // OK button on the right
                 Button(
                     onClick = { onClose() },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF4CAF50)
+                        containerColor = if (isSuccessful) Color(0xFF4CAF50) else Color(0xFFF44336)
                     ),
                     shape = RoundedCornerShape(8.dp),
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text("OK")
+                    Text(if (isSuccessful) "OK" else "Close")
                 }
             }
         }

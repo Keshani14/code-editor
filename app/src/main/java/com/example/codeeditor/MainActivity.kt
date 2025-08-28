@@ -426,24 +426,15 @@ fun CodeEditor(
                     lineHeight = 24.sp
                 )
             )
-        } else {
-            androidx.compose.material3.Text(
-                text = highlightedText,
-                style = androidx.compose.ui.text.TextStyle(
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp
-                ),
-                modifier = Modifier.fillMaxSize()
-            )
         }
         
-        // Text field for input (transparent text, visible cursor)
+        // Text field for input with syntax highlighting
         androidx.compose.foundation.text.BasicTextField(
-            value = editorState.textField.value,
+            value = editorState.textField.value.copy(text = highlightedText.text),
             onValueChange = { editorState.onTextChange(it) },
             textStyle = androidx.compose.ui.text.TextStyle(
                 fontSize = 16.sp,
-                color = androidx.compose.ui.graphics.Color.Transparent,
+                color = textColor,
                 lineHeight = 24.sp
             ),
             cursorBrush = androidx.compose.ui.graphics.SolidColor(textColor),
