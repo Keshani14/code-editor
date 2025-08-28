@@ -1,0 +1,7 @@
+{
+  "keywords": ["def", "class", "if", "else", "return", "import", "for", "while", "try", "except", "finally", "with", "as", "from", "in", "is", "not", "and", "or", "True", "False", "None", "lambda", "yield", "raise", "assert", "del", "global", "nonlocal", "pass", "break", "continue"],
+  "comments": ["#"],
+  "strings": ["\"", "'", "\"\"\"", "\"\"\""],
+  "types": ["str", "int", "float", "bool", "list", "tuple", "dict", "set", "bytes", "bytearray", "complex", "object", "type", "NoneType"],
+  "modifiers": ["async", "await", "staticmethod", "classmethod", "property", "abstractmethod"]
+}

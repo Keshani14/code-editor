@@ -1,0 +1,13 @@
+{
+  "keywords": [
+    "abstract", "actual", "annotation", "as", "break", "by", "catch", "class", "companion", "const", "constructor", "continue", "crossinline", "data", "delegate", "do", "dynamic", "else", "enum", "expect", "external", "false", "field", "file", "final", "finally", "for", "fun", "get", "if", "import", "in", "infix", "init", "inline", "inner", "interface", "internal", "is", "lateinit", "noinline", "null", "object", "open", "operator", "out", "override", "package", "param", "private", "property", "protected", "public", "reified", "return", "sealed", "set", "setparam", "super", "suspend", "tailrec", "this", "throw", "true", "try", "typealias", "typeof", "val", "var", "vararg", "when", "where", "while"
+  ],
+  "comments": ["//", "/*", "*/"],
+  "strings": ["\"", "'", "\"\"\"", "\"\"\""],
+  "types": [
+    "String", "Int", "Double", "Float", "Long", "Short", "Byte", "Boolean", "Char", "Any", "Unit", "Nothing", "List", "MutableList", "ArrayList", "Map", "MutableMap", "HashMap", "Set", "MutableSet", "HashSet", "Array", "Sequence", "Collection", "Iterable", "Comparable", "Enum", "Annotation", "KClass", "KProperty", "KFunction", "KCallable", "KType", "KTypeParameter", "KClassifier", "KVisibility", "KModifier"
+  ],
+  "modifiers": [
+    "public", "private", "protected", "internal", "open", "final", "abstract", "sealed", "data", "inline", "noinline", "crossinline", "const", "lateinit", "override", "operator", "infix", "suspend", "tailrec", "expect", "actual", "external", "annotation", "companion", "object", "enum", "interface", "class", "fun", "val", "var", "typealias"
+  ]
+}

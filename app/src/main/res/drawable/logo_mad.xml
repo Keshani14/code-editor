@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="120dp"
+    android:viewportWidth="200"
+    android:viewportHeight="120">
+
+    <!-- Background -->
+    <path
+        android:fillColor="#1A3A3A"
+        android:pathData="M0,0 L200,0 L200,120 L0,120 Z" />
+
+    <!-- Main Panel/Window -->
+    <path
+        android:fillColor="#0F2A2A"
+        android:pathData="M10,10 L190,10 L190,110 L10,110 Z" />
+
+    <!-- Search Bar Background -->
+    <path
+        android:fillColor="#D4A574"
+        android:pathData="M15,15 L185,15 L185,35 L15,35 Z" />
+
+    <!-- Search Bar Input Field -->
+    <path
+        android:fillColor="#B8945A"
+        android:pathData="M20,20 L170,20 L170,30 L20,30 Z" />
+
+    <!-- Magnifying Glass Icon -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M175,22 L175,28 L171,28 L171,22 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M172,25 L178,25 L178,26 L172,26 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M173,23 A2,2 0 1,1 177,23 A2,2 0 1,1 173,23 Z" />
+
+    <!-- Abstract Background Lines -->
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,45 L180,45" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,50 L160,50" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,55 L170,55" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,60 L150,60" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,65 L165,65" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,70 L155,70" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,75 L175,75" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,80 L145,80" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,85 L160,85" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,90 L170,90" />
+    <path
+        android:strokeColor="#2A4A4A"
+        android:strokeWidth="1"
+        android:pathData="M20,95 L150,95" />
+
+    <!-- MAD Text -->
+    <path
+        android:fillColor="#F5F5DC"
+        android:pathData="M60,50 L80,50 L80,90 L60,90 Z" />
+    <path
+        android:fillColor="#F5F5DC"
+        android:pathData="M65,55 L75,55 L75,85 L65,85 Z" />
+    
+    <path
+        android:fillColor="#F5F5DC"
+        android:pathData="M90,50 L110,50 L110,90 L90,90 Z" />
+    <path
+        android:fillColor="#F5F5DC"
+        android:pathData="M95,55 L105,55 L105,85 L95,85 Z" />
+    
+    <path
+        android:fillColor="#F5F5DC"
+        android:pathData="M120,50 L140,50 L140,90 L120,90 Z" />
+    <path
+        android:fillColor="#F5F5DC"
+        android:pathData="M125,55 L135,55 L135,85 L125,85 Z" />
+
+</vector>
