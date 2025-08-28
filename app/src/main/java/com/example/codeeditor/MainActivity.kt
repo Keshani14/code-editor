@@ -77,8 +77,13 @@ class MainActivity : ComponentActivity() {
                 snapshotFlow { editorState.textField.value }
                     .debounce(500)
                     .collect {
-                        editorState.commitChange()
-                        saveFile(currentFileName)
+                        try {
+                            editorState.commitChange()
+                            saveFile(currentFileName)
+                        } catch (e: Exception) {
+                            // Log error but don't crash the app
+                            android.util.Log.e("MainActivity", "Auto-save error: ${e.message}")
+                        }
                     }
             }
 
@@ -408,7 +413,12 @@ fun CodeEditor(
     
     val syntaxHighlighter = remember { SyntaxHighlighter() }
     val highlightedText = remember(editorState.textField.value.text, syntaxRules, isSystemDarkMode) {
-        syntaxHighlighter.highlightCode(editorState.textField.value.text, syntaxRules, isSystemDarkMode)
+        try {
+            syntaxHighlighter.highlightCode(editorState.textField.value.text, syntaxRules, isSystemDarkMode)
+        } catch (e: Exception) {
+            // Fallback to plain text if highlighting fails
+            androidx.compose.ui.text.AnnotatedString(editorState.textField.value.text)
+        }
     }
     
     androidx.compose.foundation.layout.Box(
@@ -428,13 +438,25 @@ fun CodeEditor(
             )
         }
         
-        // Text field for input with syntax highlighting
+        // Display layer: Syntax highlighted text (non-interactive)
+        if (editorState.textField.value.text.isNotEmpty()) {
+            androidx.compose.material3.Text(
+                text = highlightedText,
+                style = androidx.compose.ui.text.TextStyle(
+                    fontSize = 16.sp,
+                    lineHeight = 24.sp
+                ),
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+        
+        // Input layer: Transparent text field for user input
         androidx.compose.foundation.text.BasicTextField(
-            value = editorState.textField.value.copy(text = highlightedText.text),
+            value = editorState.textField.value,
             onValueChange = { editorState.onTextChange(it) },
             textStyle = androidx.compose.ui.text.TextStyle(
                 fontSize = 16.sp,
-                color = textColor,
+                color = androidx.compose.ui.graphics.Color.Transparent,
                 lineHeight = 24.sp
             ),
             cursorBrush = androidx.compose.ui.graphics.SolidColor(textColor),
